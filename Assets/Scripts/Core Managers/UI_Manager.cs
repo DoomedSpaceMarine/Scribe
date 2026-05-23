@@ -28,6 +28,10 @@ public class UI_Manager : MonoBehaviour
     private AudioSource wordAudioSource;
     private AudioSource musicAudioSource;
 
+    //Example audiosources
+    [SerializeField] private AudioSource exampleWordAudiosource;
+    [SerializeField] private AudioSource exampleMusicAudiosource;
+
     //Button colors
     public Color buttonUnselectedColor;
     public Color buttonSelectedColor;
@@ -58,6 +62,7 @@ public class UI_Manager : MonoBehaviour
         ResetSelection(ButtonType.Pitch);
         wordAudioSource = null;
         musicAudioSource = null;
+        PlayExampleAudio(level.correctWords.audioClip, level.correctMusic.audioClip, level.correctPitch);
         currentLevel= level;
         //Setup sprites and npc name
         backgroundImage.sprite = level.backgroundSprite;
@@ -248,6 +253,30 @@ public class UI_Manager : MonoBehaviour
             wordAudioSource.pitch = 3f;
             wordAudioSource.Play();
         }
+    }
+
+    private void PlayExampleAudio(AudioClip wordAudio, AudioClip musicAudio, AudioPitch pitch)
+    {
+        exampleWordAudiosource.clip = wordAudio;
+        exampleMusicAudiosource.clip = musicAudio;
+
+        switch (pitch)
+        {
+            case AudioPitch.Low:
+                exampleWordAudiosource.pitch = 0.5f;
+                exampleMusicAudiosource.pitch = 0.5f;
+                break;
+            case AudioPitch.Medium:
+                exampleWordAudiosource.pitch = 1f;
+                exampleMusicAudiosource.pitch = 1f;
+                break;
+            case AudioPitch.High:
+                exampleWordAudiosource.pitch = 3f;
+                exampleMusicAudiosource.pitch = 3f;
+                break;
+        }
+        exampleMusicAudiosource.Play();
+        exampleWordAudiosource.Play();
     }
 
     private void SetActiveAudioSource(AudioSource audioSource, bool isWord)
