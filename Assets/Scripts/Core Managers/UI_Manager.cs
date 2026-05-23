@@ -20,12 +20,13 @@ public class UI_Manager : MonoBehaviour
     //Music
     [SerializeField] private List<AudioType> musics= new List<AudioType>();
     [SerializeField] private Button[] musicButtons;
-    
 
     //Pitch
-    [SerializeField] private Button pitchLow;
-    [SerializeField] private Button pitchMedium;
-    [SerializeField] private Button pitchHigh;
+    [SerializeField] private Button[] pitchButtons;
+
+    //
+
+    private Transcribe currentLevel;
 
     private void OnEnable()
     {
@@ -40,6 +41,7 @@ public class UI_Manager : MonoBehaviour
     }
     private void SetupLevel(Transcribe level)
     {
+        currentLevel= level;
         //Setup sprites and npc name
         backgroundImage.sprite = level.backgroundSprite;
         npcImage.sprite = level.npcSprite;
@@ -62,6 +64,9 @@ public class UI_Manager : MonoBehaviour
         }
         ShuffleList(musics);
         AssignMusicButtons();
+
+        //Setup pitch category
+        AssignPitchButtons();
 
     }
     private void AssignWordButtons()
@@ -132,7 +137,47 @@ public class UI_Manager : MonoBehaviour
         Debug.Log("Incorrect Music");
     }
 
-        public List<AudioType> ShuffleList(List<AudioType> list)
+    private void AssignPitchButtons()
+    {
+        for (int i = 0; i < pitchButtons.Length; i++)
+        {
+            pitchButtons[i].onClick.RemoveAllListeners();
+            if (i == 0 && currentLevel.correctPitch == AudioPitch.Low)
+            {
+                pitchButtons[i].onClick.AddListener(()
+                    => PitchCorrectButton());
+            }
+            else if(i == 1 && currentLevel.correctPitch == AudioPitch.Medium)
+            {
+                pitchButtons[i].onClick.AddListener(()
+                    => PitchCorrectButton());
+            }
+            else if (i == 2 && currentLevel.correctPitch == AudioPitch.High)
+            {
+                pitchButtons[i].onClick.AddListener(()
+                    => PitchCorrectButton());
+            }
+            else
+            {
+                pitchButtons[i].onClick.AddListener(()
+                    => PitchIncorrectButton());
+            }  
+        }
+    }
+
+    private void PitchCorrectButton()
+    {
+        _eventManager.SetPitchCorrectState(true);
+        Debug.Log("Correct Pitch");
+    }
+
+    private void PitchIncorrectButton()
+    {
+        _eventManager.SetPitchCorrectState(false);
+        Debug.Log("Incorrect Pitch");
+    }
+
+    public List<AudioType> ShuffleList(List<AudioType> list)
     {
         for (int i = list.Count - 1; i > 0; i--)
         {

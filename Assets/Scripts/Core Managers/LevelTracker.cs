@@ -19,6 +19,7 @@ public class LevelTracker : MonoBehaviour
 
         _eventManager.onSetWord += SetWordCorrectState;
         _eventManager.onSetMusic += SetMusicCorrectState;
+        _eventManager.onSetPitch += SetPitchCorrectState;
 
         _eventManager.SetupLevelUI(transcribes[0]);
     }
@@ -27,6 +28,7 @@ public class LevelTracker : MonoBehaviour
     {
         _eventManager.onSetWord -= SetWordCorrectState;
         _eventManager.onSetMusic -= SetMusicCorrectState;
+        _eventManager.onSetPitch -= SetPitchCorrectState;
     }
 
     private void SetWordCorrectState(bool correct)
@@ -37,5 +39,10 @@ public class LevelTracker : MonoBehaviour
     private void SetMusicCorrectState(bool correct)
     {
         musicIsCorrect = correct;
+    }
+
+    private void SetPitchCorrectState(bool correct)
+    {
+        pitchIsCorrect = correct;
     }
 }

@@ -12,5 +12,8 @@ public class EventManager : MonoBehaviour
     //Setup correct music state
     public event Action<bool> onSetMusic;
     public void SetMusicCorrectState(bool correct) => onSetMusic?.Invoke(correct);
+    //Setup correct pitch state
+    public event Action<bool> onSetPitch;
+    public void SetPitchCorrectState(bool correct) => onSetPitch?.Invoke(correct);  
 
 }

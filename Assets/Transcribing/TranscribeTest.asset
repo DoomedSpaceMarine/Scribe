@@ -26,7 +26,7 @@ MonoBehaviour:
   - description: Winter
     audioClip: {fileID: 8300000, guid: e4f978b57db87144a9aab4a8517d45b9, type: 3}
     correctAnswer: 0
-  correctPitch: 2
+  correctPitch: 1
   correctWords:
     description: Shotgun
     audioClip: {fileID: 8300000, guid: 3e526658d3aaefd489bf9ffde947b50d, type: 3}
