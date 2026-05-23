@@ -45,6 +45,10 @@ public class UI_Manager : MonoBehaviour
     }
     private void SetupLevel(Transcribe level)
     {
+        words.Clear();
+        musics.Clear();
+        wordAudioSource = null;
+        musicAudioSource = null;
         currentLevel= level;
         //Setup sprites and npc name
         backgroundImage.sprite = level.backgroundSprite;
