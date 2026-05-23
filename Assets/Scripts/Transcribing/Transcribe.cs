@@ -12,8 +12,8 @@ public class Transcribe : ScriptableObject
     public AudioClip correctMusic;
     public AudioClip[] incorrectMusic;
     public AudioPitch correctPitch;
-    public AudioClip correctWords;
-    public AudioClip[] incorrectWords;
+    public WordType correctWords;
+    public WordType[] incorrectWords;
 }
 
 public enum AudioPitch

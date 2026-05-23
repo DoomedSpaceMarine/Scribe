@@ -9,9 +9,26 @@ public class LevelTracker : MonoBehaviour
     [SerializeField] private List<Transcribe> transcribes = new List<Transcribe>();
     [SerializeField] private int currentLevelIndex;
 
-    private void Start()
+    [SerializeField] private bool wordIsCorrect;
+    [SerializeField] private bool musicIsCorrect;
+    [SerializeField] private bool pitchIsCorrect;
+
+    private void OnEnable()
     {
         _eventManager = FindFirstObjectByType<EventManager>();
+
+        _eventManager.onSetWord += SetWordCorrectState;
+
         _eventManager.SetupLevelUI(transcribes[0]);
+    }
+
+    private void OnDisable()
+    {
+        _eventManager.onSetWord -= SetWordCorrectState;
+    }
+
+    private void SetWordCorrectState(bool correct)
+    {
+        wordIsCorrect = correct;
     }
 }

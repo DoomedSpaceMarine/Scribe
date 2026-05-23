@@ -12,11 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74666d51371313c4f9cdcc76cb7af23c, type: 3}
   m_Name: TranscribeTest
   m_EditorClassIdentifier: Assembly-CSharp::Transcribe
-  npcName: 
+  npcName: Erasmus
   npcSprite: {fileID: 0}
   backgroundSprite: {fileID: 0}
   correctMusic: {fileID: 0}
   incorrectMusic: []
   correctPitch: 2
-  correctWords: {fileID: 0}
-  incorrectWords: []
+  correctWords:
+    word: Shotgun
+    wordClip: {fileID: 8300000, guid: 3e526658d3aaefd489bf9ffde947b50d, type: 3}
+    correctAnswer: 1
+  incorrectWords:
+  - word: Incorrect
+    wordClip: {fileID: 8300000, guid: d912404cb128c84439b2870336c9512e, type: 3}
+    correctAnswer: 0
+  - word: Wrong
+    wordClip: {fileID: 8300000, guid: 372f02f17aa5aa84f8e9770e3cf4fcb0, type: 3}
+    correctAnswer: 0
