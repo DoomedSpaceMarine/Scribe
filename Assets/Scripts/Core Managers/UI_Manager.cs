@@ -24,7 +24,9 @@ public class UI_Manager : MonoBehaviour
     //Pitch
     [SerializeField] private Button[] pitchButtons;
 
-    //
+    //Current audioSources
+    private AudioSource wordAudioSource;
+    private AudioSource musicAudioSource;
 
     private Transcribe currentLevel;
 
@@ -33,11 +35,13 @@ public class UI_Manager : MonoBehaviour
         _eventManager = FindFirstObjectByType<EventManager>();
 
         _eventManager.onSetupLevelUI += SetupLevel;
+        _eventManager.onSetActiveAudioSource += SetActiveAudioSource;
     }
 
     private void OnDisable()
     {
-        _eventManager.onSetupLevelUI += SetupLevel;
+        _eventManager.onSetupLevelUI -= SetupLevel;
+        _eventManager.onSetActiveAudioSource -= SetActiveAudioSource;
     }
     private void SetupLevel(Transcribe level)
     {
@@ -139,6 +143,7 @@ public class UI_Manager : MonoBehaviour
 
     private void AssignPitchButtons()
     {
+
         for (int i = 0; i < pitchButtons.Length; i++)
         {
             pitchButtons[i].onClick.RemoveAllListeners();
@@ -161,8 +166,14 @@ public class UI_Manager : MonoBehaviour
             {
                 pitchButtons[i].onClick.AddListener(()
                     => PitchIncorrectButton());
-            }  
+            }
         }
+        pitchButtons[0].onClick.AddListener(()
+           => LowPitch());
+        pitchButtons[1].onClick.AddListener(()
+            => MediumPitch());
+        pitchButtons[2].onClick.AddListener(()
+            => HighPitch());
     }
 
     private void PitchCorrectButton()
@@ -175,6 +186,67 @@ public class UI_Manager : MonoBehaviour
     {
         _eventManager.SetPitchCorrectState(false);
         Debug.Log("Incorrect Pitch");
+    }
+
+    private void LowPitch()
+    {
+        if (musicAudioSource != null)
+        {
+            musicAudioSource.Stop();
+            musicAudioSource.pitch = 0.5f;
+            musicAudioSource.Play();
+        }
+        if(wordAudioSource != null)
+        {
+            wordAudioSource.Stop();
+            wordAudioSource.pitch = 0.5f;
+            wordAudioSource.Play();
+        }
+        Debug.Log("This runs");
+    }
+
+    private void MediumPitch()
+    {
+        if (musicAudioSource != null)
+        {
+            musicAudioSource.Stop();
+            musicAudioSource.pitch = 1;
+            musicAudioSource.Play();
+        }
+        if (wordAudioSource != null)
+        {
+            wordAudioSource.Stop();
+            wordAudioSource.pitch = 1;
+            wordAudioSource.Play();
+        }
+    }
+
+    private void HighPitch()
+    {
+        if (musicAudioSource != null)
+        {
+            musicAudioSource.Stop();
+            musicAudioSource.pitch = 3f;
+            musicAudioSource.Play();
+        }
+        if (wordAudioSource != null)
+        {
+            wordAudioSource.Stop();
+            wordAudioSource.pitch = 3f;
+            wordAudioSource.Play();
+        }
+    }
+
+    private void SetActiveAudioSource(AudioSource audioSource, bool isWord)
+    {
+        if (isWord)
+        {
+            wordAudioSource = audioSource;
+        }
+        else
+        {
+            musicAudioSource= audioSource;
+        }
     }
 
     public List<AudioType> ShuffleList(List<AudioType> list)
