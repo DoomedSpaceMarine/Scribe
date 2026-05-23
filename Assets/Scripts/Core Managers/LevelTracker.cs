@@ -18,6 +18,7 @@ public class LevelTracker : MonoBehaviour
         _eventManager = FindFirstObjectByType<EventManager>();
 
         _eventManager.onSetWord += SetWordCorrectState;
+        _eventManager.onSetMusic += SetMusicCorrectState;
 
         _eventManager.SetupLevelUI(transcribes[0]);
     }
@@ -25,10 +26,16 @@ public class LevelTracker : MonoBehaviour
     private void OnDisable()
     {
         _eventManager.onSetWord -= SetWordCorrectState;
+        _eventManager.onSetMusic -= SetMusicCorrectState;
     }
 
     private void SetWordCorrectState(bool correct)
     {
         wordIsCorrect = correct;
+    }
+
+    private void SetMusicCorrectState(bool correct)
+    {
+        musicIsCorrect = correct;
     }
 }

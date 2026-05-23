@@ -9,11 +9,11 @@ public class Transcribe : ScriptableObject
     public Sprite backgroundSprite;
 
     [Header("Ritual")]
-    public AudioClip correctMusic;
-    public AudioClip[] incorrectMusic;
+    public AudioType correctMusic;
+    public AudioType[] incorrectMusic;
     public AudioPitch correctPitch;
-    public WordType correctWords;
-    public WordType[] incorrectWords;
+    public AudioType correctWords;
+    public AudioType[] incorrectWords;
 }
 
 public enum AudioPitch

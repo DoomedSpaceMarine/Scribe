@@ -9,5 +9,8 @@ public class EventManager : MonoBehaviour
     //Setup correct word state
     public event Action<bool> onSetWord;
     public void SetWordCorrectState(bool correct) => onSetWord?.Invoke(correct);
+    //Setup correct music state
+    public event Action<bool> onSetMusic;
+    public void SetMusicCorrectState(bool correct) => onSetMusic?.Invoke(correct);
 
 }

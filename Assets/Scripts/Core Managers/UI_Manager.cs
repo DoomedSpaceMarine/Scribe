@@ -14,11 +14,12 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI npcName;
 
     //Word
-    [SerializeField] private List<WordType> words = new List<WordType>();
+    [SerializeField] private List<AudioType> words = new List<AudioType>();
     [SerializeField] private Button[] wordButtons;
 
     //Music
-    
+    [SerializeField] private List<AudioType> musics= new List<AudioType>();
+    [SerializeField] private Button[] musicButtons;
     
 
     //Pitch
@@ -54,6 +55,13 @@ public class UI_Manager : MonoBehaviour
         AssignWordButtons();
 
         //Setup music category
+        musics.Add(level.correctMusic);
+        for (int i = 0; i < level.incorrectMusic.Length; i++)
+        {
+            musics.Add(level.incorrectMusic[i]);    
+        }
+        ShuffleList(musics);
+        AssignMusicButtons();
 
     }
     private void AssignWordButtons()
@@ -65,15 +73,15 @@ public class UI_Manager : MonoBehaviour
             {
                 wordButtons[i].onClick.AddListener(()
                     => WordCorrectButton());
-                wordButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = words[i].word;
-                wordButtons[i].GetComponent<AudioSource>().clip = words[i].wordClip;
+                wordButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = words[i].description;
+                wordButtons[i].GetComponent<AudioSource>().clip = words[i].audioClip;
             }
             else
             {
                 wordButtons[i].onClick.AddListener(()
                     => WordIncorrectButton());
-                wordButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = words[i].word;
-                wordButtons[i].GetComponent<AudioSource>().clip = words[i].wordClip;
+                wordButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = words[i].description;
+                wordButtons[i].GetComponent<AudioSource>().clip = words[i].audioClip;
             }
         }
     }
@@ -90,12 +98,46 @@ public class UI_Manager : MonoBehaviour
         Debug.Log("Incorrect Word");
     }
 
-    public List<WordType> ShuffleList(List<WordType> list)
+    private void AssignMusicButtons()
+    {
+        for (int i = 0; i < musics.Count; i++)
+        {
+            musicButtons[i].onClick.RemoveAllListeners();
+            if (musics[i].correctAnswer)
+            {
+                musicButtons[i].onClick.AddListener(()
+                    => MusicCorrectButton());
+                musicButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = musics[i].description;
+                musicButtons[i].GetComponent<AudioSource>().clip = musics[i].audioClip;
+            }
+            else
+            {
+                musicButtons[i].onClick.AddListener(()
+                    => MusicIncorrectButton());
+                musicButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = musics[i].description;
+                musicButtons[i].GetComponent<AudioSource>().clip = musics[i].audioClip;
+            }
+        }
+    }
+
+    private void MusicCorrectButton()
+    {
+        _eventManager.SetMusicCorrectState(true);
+        Debug.Log("Correct Music");
+    }
+
+    private void MusicIncorrectButton()
+    {
+        _eventManager.SetMusicCorrectState(false);
+        Debug.Log("Incorrect Music");
+    }
+
+        public List<AudioType> ShuffleList(List<AudioType> list)
     {
         for (int i = list.Count - 1; i > 0; i--)
         {
             int j = UnityEngine.Random.Range(0, i + 1);
-            WordType temp = list[i];
+            AudioType temp = list[i];
             list[i] = list[j];
             list[j] = temp;
         }
@@ -105,9 +147,9 @@ public class UI_Manager : MonoBehaviour
 }
 
 [System.Serializable]
-public class WordType
+public class AudioType
 {
-    public string word;
-    public AudioClip wordClip;
+    public string description;
+    public AudioClip audioClip;
     public bool correctAnswer;
 }

@@ -15,17 +15,26 @@ MonoBehaviour:
   npcName: Erasmus
   npcSprite: {fileID: 0}
   backgroundSprite: {fileID: 0}
-  correctMusic: {fileID: 0}
-  incorrectMusic: []
+  correctMusic:
+    description: Doom
+    audioClip: {fileID: 8300000, guid: 475c86d7f73a86142b5c700061a29bf5, type: 3}
+    correctAnswer: 1
+  incorrectMusic:
+  - description: Happy
+    audioClip: {fileID: 8300000, guid: 409d9f85429cab846b7fd1aa9940ebc7, type: 3}
+    correctAnswer: 0
+  - description: Winter
+    audioClip: {fileID: 8300000, guid: e4f978b57db87144a9aab4a8517d45b9, type: 3}
+    correctAnswer: 0
   correctPitch: 2
   correctWords:
-    word: Shotgun
-    wordClip: {fileID: 8300000, guid: 3e526658d3aaefd489bf9ffde947b50d, type: 3}
+    description: Shotgun
+    audioClip: {fileID: 8300000, guid: 3e526658d3aaefd489bf9ffde947b50d, type: 3}
     correctAnswer: 1
   incorrectWords:
-  - word: Incorrect
-    wordClip: {fileID: 8300000, guid: d912404cb128c84439b2870336c9512e, type: 3}
+  - description: Incorrect
+    audioClip: {fileID: 8300000, guid: d912404cb128c84439b2870336c9512e, type: 3}
     correctAnswer: 0
-  - word: Wrong
-    wordClip: {fileID: 8300000, guid: 372f02f17aa5aa84f8e9770e3cf4fcb0, type: 3}
+  - description: Wrong
+    audioClip: {fileID: 8300000, guid: 372f02f17aa5aa84f8e9770e3cf4fcb0, type: 3}
     correctAnswer: 0
