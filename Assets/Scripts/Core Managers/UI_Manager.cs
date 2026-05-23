@@ -28,6 +28,10 @@ public class UI_Manager : MonoBehaviour
     private AudioSource wordAudioSource;
     private AudioSource musicAudioSource;
 
+    //Button colors
+    public Color buttonUnselectedColor;
+    public Color buttonSelectedColor;
+
     private Transcribe currentLevel;
 
     private void OnEnable()
@@ -36,17 +40,22 @@ public class UI_Manager : MonoBehaviour
 
         _eventManager.onSetupLevelUI += SetupLevel;
         _eventManager.onSetActiveAudioSource += SetActiveAudioSource;
+        _eventManager.onSetButtonSelected += SetButtonSelected;
     }
 
     private void OnDisable()
     {
         _eventManager.onSetupLevelUI -= SetupLevel;
         _eventManager.onSetActiveAudioSource -= SetActiveAudioSource;
+        _eventManager.onSetButtonSelected -= SetButtonSelected;
     }
     private void SetupLevel(Transcribe level)
     {
         words.Clear();
         musics.Clear();
+        ResetSelection(ButtonType.Word);
+        ResetSelection(ButtonType.Music); 
+        ResetSelection(ButtonType.Pitch);
         wordAudioSource = null;
         musicAudioSource = null;
         currentLevel= level;
@@ -253,6 +262,39 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    private void SetButtonSelected(ButtonType type, Button button)
+    {
+        ResetSelection(type);
+        button.image.color = buttonSelectedColor;
+    }
+
+    private void ResetSelection(ButtonType type)
+    {
+        if(type == ButtonType.Word)
+        {
+            for(int i = 0; i < wordButtons.Length; i++)
+            {
+                wordButtons[i].image.color = buttonUnselectedColor;
+            }
+        }
+
+        if (type == ButtonType.Music)
+        {
+            for (int i = 0; i < musicButtons.Length; i++)
+            {
+                musicButtons[i].image.color = buttonUnselectedColor;
+            }
+        }
+
+        if (type == ButtonType.Pitch)
+        {
+            for (int i = 0; i < pitchButtons.Length; i++)
+            {
+                pitchButtons[i].image.color = buttonUnselectedColor;
+            }
+        }
+    }
+
     public List<AudioType> ShuffleList(List<AudioType> list)
     {
         for (int i = list.Count - 1; i > 0; i--)
@@ -273,4 +315,11 @@ public class AudioType
     public string description;
     public AudioClip audioClip;
     public bool correctAnswer;
+}
+
+public enum ButtonType
+{
+    Word,
+    Music,
+    Pitch
 }

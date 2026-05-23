@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class EventManager : MonoBehaviour
@@ -18,5 +19,8 @@ public class EventManager : MonoBehaviour
     //Set active audiosource
     public event Action<AudioSource, bool> onSetActiveAudioSource;
     public void SetActiveAudioSource(AudioSource audioSource, bool isWord) => onSetActiveAudioSource?.Invoke(audioSource, isWord);
+    //Set button selected
+    public event Action<ButtonType, Button> onSetButtonSelected;
+    public void SetButtonSelected(ButtonType buttonType, Button button) => onSetButtonSelected?.Invoke(buttonType, button);
 
 }
