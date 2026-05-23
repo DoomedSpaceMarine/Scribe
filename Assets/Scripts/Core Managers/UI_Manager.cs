@@ -6,6 +6,8 @@ using System.Linq;
 
 public class UI_Manager : MonoBehaviour
 {
+    private EventManager _eventManager;
+
     //NPC & Background
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Image npcImage;
@@ -21,6 +23,18 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private Button pitchLow;
     [SerializeField] private Button pitchMedium;
     [SerializeField] private Button pitchHigh;
+
+    private void OnEnable()
+    {
+        _eventManager = FindFirstObjectByType<EventManager>();
+
+        _eventManager.onSetupLevelUI += SetupLevel;  
+    }
+
+    private void OnDisable()
+    {
+        _eventManager.onSetupLevelUI += SetupLevel;
+    }
     private void SetupLevel(Transcribe level)
     {
         //Setup sprites and npc name
