@@ -808,7 +808,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -753, y: -247.41827}
+  m_AnchoredPosition: {x: 412, y: 66}
   m_SizeDelta: {x: 326.921, y: 585.1635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3629257237391830552
@@ -1098,7 +1098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -753, y: 85}
+  m_AnchoredPosition: {x: 412, y: 398.41824}
   m_SizeDelta: {x: 326.93, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6044829920805111565
@@ -4305,12 +4305,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3190048579826174636}
+  - {fileID: 950984943994764729}
+  - {fileID: 1206713165300915831}
   - {fileID: 5116633720688001793}
   - {fileID: 4829138496664672206}
   - {fileID: 4896478094089095300}
   - {fileID: 5691664124490847154}
-  - {fileID: 950984943994764729}
-  - {fileID: 1206713165300915831}
   - {fileID: 2188462231570305524}
   - {fileID: 9133269596598075806}
   - {fileID: 982197667866713869}
@@ -4413,5 +4413,7 @@ MonoBehaviour:
   - {fileID: 977806170672976927}
   - {fileID: 5906581209470410727}
   - {fileID: 5345124498144553552}
+  exampleWordAudiosource: {fileID: 0}
+  exampleMusicAudiosource: {fileID: 0}
   buttonUnselectedColor: {r: 0, g: 0, b: 0, a: 0}
   buttonSelectedColor: {r: 0, g: 0, b: 0, a: 0}
