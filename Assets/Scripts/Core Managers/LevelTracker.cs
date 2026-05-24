@@ -76,12 +76,14 @@ public class LevelTracker : MonoBehaviour
 
     private IEnumerator GoodEnding()
     {
+        confirmButton.interactable = false;
         goodEnding.SetActive(true);
         yield return new WaitForSeconds(2);
         goodEnding.SetActive(false);
         currentLevelIndex++;
         if(currentLevelIndex < transcribes.Count)
         {
+            confirmButton.interactable = true;
             _eventManager.SetupLevelUI(transcribes[currentLevelIndex]);
         }
         else
@@ -92,12 +94,14 @@ public class LevelTracker : MonoBehaviour
 
     private IEnumerator BadEnding()
     {
+        confirmButton.interactable = false;
         badEnding.SetActive(true);
         yield return new WaitForSeconds(2);
         badEnding.SetActive(false);
         currentLevelIndex++;
         if (currentLevelIndex < transcribes.Count)
         {
+            confirmButton.interactable = true;
             _eventManager.SetupLevelUI(transcribes[currentLevelIndex]);
         }
         else
