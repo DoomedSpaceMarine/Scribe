@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class LevelTracker : MonoBehaviour
 {
@@ -26,8 +27,6 @@ public class LevelTracker : MonoBehaviour
         _eventManager.onSetWord += SetWordCorrectState;
         _eventManager.onSetMusic += SetMusicCorrectState;
         _eventManager.onSetPitch += SetPitchCorrectState;
-
-        _eventManager.SetupLevelUI(transcribes[0]);
     }
 
     private void OnDisable()
@@ -41,6 +40,11 @@ public class LevelTracker : MonoBehaviour
     {
         confirmButton.onClick.AddListener(()
             => CheckLevelCompletion());
+    }
+
+    private void Start()
+    {
+        _eventManager.SetupLevelUI(transcribes[0]);
     }
 
     private void CheckLevelCompletion()
@@ -82,7 +86,7 @@ public class LevelTracker : MonoBehaviour
         }
         else
         {
-            Debug.Log("Game Over");
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -98,7 +102,7 @@ public class LevelTracker : MonoBehaviour
         }
         else
         {
-            Debug.Log("Game Over");
+            SceneManager.LoadScene(0);
         }
     }
 }

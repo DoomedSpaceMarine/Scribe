@@ -257,6 +257,9 @@ public class UI_Manager : MonoBehaviour
 
     private void PlayExampleAudio(AudioClip wordAudio, AudioClip musicAudio, AudioPitch pitch)
     {
+        exampleMusicAudiosource.Stop();
+        exampleWordAudiosource.Stop();
+
         exampleWordAudiosource.clip = wordAudio;
         exampleMusicAudiosource.clip = musicAudio;
 
