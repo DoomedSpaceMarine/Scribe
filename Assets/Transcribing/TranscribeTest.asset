@@ -12,29 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74666d51371313c4f9cdcc76cb7af23c, type: 3}
   m_Name: TranscribeTest
   m_EditorClassIdentifier: Assembly-CSharp::Transcribe
-  npcName: Erasmus
-  npcSprite: {fileID: 0}
-  backgroundSprite: {fileID: 0}
+  npcName: Tiera
+  npcSprite: {fileID: 6088985924116012826, guid: e8d7d1779cb302a4493a22c2695bbb9f, type: 3}
+  backgroundSprite: {fileID: 246365701739172918, guid: 0eec34b1ff16f2643a9f9fefa59dd112, type: 3}
   correctMusic:
-    description: Doom
-    audioClip: {fileID: 8300000, guid: 475c86d7f73a86142b5c700061a29bf5, type: 3}
+    description: "l\xF6yly"
+    audioClip: {fileID: 8300000, guid: 3265b27ee12b7c245bba663443963c9e, type: 3}
     correctAnswer: 1
   incorrectMusic:
-  - description: Happy
-    audioClip: {fileID: 8300000, guid: 409d9f85429cab846b7fd1aa9940ebc7, type: 3}
+  - description: "l\xF6yly"
+    audioClip: {fileID: 8300000, guid: 3b2c3239ae2094d439d565c095633bef, type: 3}
     correctAnswer: 0
-  - description: Winter
-    audioClip: {fileID: 8300000, guid: e4f978b57db87144a9aab4a8517d45b9, type: 3}
+  - description: "l\xF6yly"
+    audioClip: {fileID: 8300000, guid: a7b853202bf495a4d93fe37444622916, type: 3}
     correctAnswer: 0
   correctPitch: 1
   correctWords:
-    description: Shotgun
-    audioClip: {fileID: 8300000, guid: 3e526658d3aaefd489bf9ffde947b50d, type: 3}
+    description: alexander
+    audioClip: {fileID: 8300000, guid: 6eb62190b751fb44ca941b75e8d2b1c4, type: 3}
     correctAnswer: 1
   incorrectWords:
   - description: Incorrect
-    audioClip: {fileID: 8300000, guid: d912404cb128c84439b2870336c9512e, type: 3}
+    audioClip: {fileID: 8300000, guid: 66fe6e58c2b6fc8478aa932611f6b4a3, type: 3}
     correctAnswer: 0
   - description: Wrong
-    audioClip: {fileID: 8300000, guid: 372f02f17aa5aa84f8e9770e3cf4fcb0, type: 3}
+    audioClip: {fileID: 8300000, guid: 1f08d5199ee9bd347b760766c237fa4d, type: 3}
     correctAnswer: 0

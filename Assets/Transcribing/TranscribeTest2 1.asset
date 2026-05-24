@@ -10,31 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74666d51371313c4f9cdcc76cb7af23c, type: 3}
-  m_Name: TranscribeTest2
+  m_Name: TranscribeTest2 1
   m_EditorClassIdentifier: Assembly-CSharp::Transcribe
-  npcName: Toivo
-  npcSprite: {fileID: -2502744329549082937, guid: e108e1885dfb23f478f38a59906431ea, type: 3}
-  backgroundSprite: {fileID: -6140599392138221848, guid: 708b4222ecd5fa444b325a206714e76d, type: 3}
+  npcName: Tuuli
+  npcSprite: {fileID: -6590831733823799471, guid: c1360ddb1aae7c94c873ac3c9dc117de, type: 3}
+  backgroundSprite: {fileID: -2002308345866615059, guid: 385368150144c1645b06af2c0bdd5006, type: 3}
   correctMusic:
     description: Correct melody
-    audioClip: {fileID: 8300000, guid: 5d34e988458ab3d4ab5ac71efc59dd84, type: 3}
+    audioClip: {fileID: 8300000, guid: a7b853202bf495a4d93fe37444622916, type: 3}
     correctAnswer: 1
   incorrectMusic:
   - description: Nononono
-    audioClip: {fileID: 8300000, guid: 014dd2a073189ea48bbe3f75e15d9d8f, type: 3}
+    audioClip: {fileID: 8300000, guid: 3265b27ee12b7c245bba663443963c9e, type: 3}
     correctAnswer: 0
   - description: Muahha
-    audioClip: {fileID: 8300000, guid: 5b43d3a63b7c79e42a729239d54c0308, type: 3}
+    audioClip: {fileID: 8300000, guid: 014dd2a073189ea48bbe3f75e15d9d8f, type: 3}
     correctAnswer: 0
   correctPitch: 0
   correctWords:
     description: Correct word
-    audioClip: {fileID: 8300000, guid: 4392edfe2c773b64a9ab26ca189c0ea0, type: 3}
+    audioClip: {fileID: 8300000, guid: 19d7c046e34c02c44b73f917d5c735c9, type: 3}
     correctAnswer: 1
   incorrectWords:
   - description: Nope
-    audioClip: {fileID: 8300000, guid: 0480b395e2e6c504cab6bf0b41381adb, type: 3}
+    audioClip: {fileID: 8300000, guid: 8673c2a078714fa4e9e0916d61b05e7f, type: 3}
     correctAnswer: 0
   - description: Nuh uh
-    audioClip: {fileID: 8300000, guid: e99193ce52871144aa3e1abd7de1b85a, type: 3}
+    audioClip: {fileID: 8300000, guid: 866443cdd286110449a0dee64e42d365, type: 3}
     correctAnswer: 0

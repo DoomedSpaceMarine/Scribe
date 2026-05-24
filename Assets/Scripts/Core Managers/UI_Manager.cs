@@ -100,14 +100,14 @@ public class UI_Manager : MonoBehaviour
             {
                 wordButtons[i].onClick.AddListener(()
                     => WordCorrectButton());
-                wordButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = words[i].description;
+                // wordButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = words[i].description;
                 wordButtons[i].GetComponent<AudioSource>().clip = words[i].audioClip;
             }
             else
             {
                 wordButtons[i].onClick.AddListener(()
                     => WordIncorrectButton());
-                wordButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = words[i].description;
+                // wordButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = words[i].description;
                 wordButtons[i].GetComponent<AudioSource>().clip = words[i].audioClip;
             }
         }
@@ -134,14 +134,14 @@ public class UI_Manager : MonoBehaviour
             {
                 musicButtons[i].onClick.AddListener(()
                     => MusicCorrectButton());
-                musicButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = musics[i].description;
+                // musicButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = musics[i].description;
                 musicButtons[i].GetComponent<AudioSource>().clip = musics[i].audioClip;
             }
             else
             {
                 musicButtons[i].onClick.AddListener(()
                     => MusicIncorrectButton());
-                musicButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = musics[i].description;
+                // musicButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = musics[i].description;
                 musicButtons[i].GetComponent<AudioSource>().clip = musics[i].audioClip;
             }
         }
