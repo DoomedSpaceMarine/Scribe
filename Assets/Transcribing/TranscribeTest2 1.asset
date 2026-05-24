@@ -26,7 +26,7 @@ MonoBehaviour:
   - description: Muahha
     audioClip: {fileID: 8300000, guid: 014dd2a073189ea48bbe3f75e15d9d8f, type: 3}
     correctAnswer: 0
-  correctPitch: 0
+  correctPitch: 2
   correctWords:
     description: Correct word
     audioClip: {fileID: 8300000, guid: 19d7c046e34c02c44b73f917d5c735c9, type: 3}

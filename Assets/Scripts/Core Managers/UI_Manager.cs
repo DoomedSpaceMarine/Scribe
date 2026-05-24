@@ -45,6 +45,7 @@ public class UI_Manager : MonoBehaviour
         _eventManager.onSetupLevelUI += SetupLevel;
         _eventManager.onSetActiveAudioSource += SetActiveAudioSource;
         _eventManager.onSetButtonSelected += SetButtonSelected;
+        _eventManager.onMuteAllAudio += MuteAllAudio;
     }
 
     private void OnDisable()
@@ -52,6 +53,7 @@ public class UI_Manager : MonoBehaviour
         _eventManager.onSetupLevelUI -= SetupLevel;
         _eventManager.onSetActiveAudioSource -= SetActiveAudioSource;
         _eventManager.onSetButtonSelected -= SetButtonSelected;
+        _eventManager.onMuteAllAudio -= MuteAllAudio;
     }
     private void SetupLevel(Transcribe level)
     {
@@ -211,13 +213,13 @@ public class UI_Manager : MonoBehaviour
         if (musicAudioSource != null)
         {
             musicAudioSource.Stop();
-            musicAudioSource.pitch = 0.5f;
+            musicAudioSource.pitch = 0.95f;
             musicAudioSource.Play();
         }
         if(wordAudioSource != null)
         {
             wordAudioSource.Stop();
-            wordAudioSource.pitch = 0.5f;
+            wordAudioSource.pitch = 0.95f;
             wordAudioSource.Play();
         }
         Debug.Log("This runs");
@@ -244,13 +246,13 @@ public class UI_Manager : MonoBehaviour
         if (musicAudioSource != null)
         {
             musicAudioSource.Stop();
-            musicAudioSource.pitch = 3f;
+            musicAudioSource.pitch = 1.05f;
             musicAudioSource.Play();
         }
         if (wordAudioSource != null)
         {
             wordAudioSource.Stop();
-            wordAudioSource.pitch = 3f;
+            wordAudioSource.pitch = 1.05f;
             wordAudioSource.Play();
         }
     }
@@ -266,20 +268,37 @@ public class UI_Manager : MonoBehaviour
         switch (pitch)
         {
             case AudioPitch.Low:
-                exampleWordAudiosource.pitch = 0.5f;
-                exampleMusicAudiosource.pitch = 0.5f;
+                exampleWordAudiosource.pitch = 0.95f;
+                exampleMusicAudiosource.pitch = 0.95f;
                 break;
             case AudioPitch.Medium:
                 exampleWordAudiosource.pitch = 1f;
                 exampleMusicAudiosource.pitch = 1f;
                 break;
             case AudioPitch.High:
-                exampleWordAudiosource.pitch = 3f;
-                exampleMusicAudiosource.pitch = 3f;
+                exampleWordAudiosource.pitch = 1.05f;
+                exampleMusicAudiosource.pitch = 1.05f;
                 break;
         }
         exampleMusicAudiosource.Play();
         exampleWordAudiosource.Play();
+    }
+
+    private void MuteAllAudio()
+    {
+        for (int i = 0; i < musicButtons.Length; i++)
+        {
+            musicButtons[i].GetComponent<AudioSource>().Stop();
+            wordButtons[i].GetComponent<AudioSource>().Stop();
+            if (musicAudioSource != null)
+            {
+                musicAudioSource.Stop();
+            }
+            if (wordAudioSource != null)
+            {
+                wordAudioSource.Stop();
+            }
+        }
     }
 
     private void SetActiveAudioSource(AudioSource audioSource, bool isWord)

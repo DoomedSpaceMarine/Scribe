@@ -22,5 +22,8 @@ public class EventManager : MonoBehaviour
     //Set button selected
     public event Action<ButtonType, Button> onSetButtonSelected;
     public void SetButtonSelected(ButtonType buttonType, Button button) => onSetButtonSelected?.Invoke(buttonType, button);
+    //Mute all audio
+    public event Action onMuteAllAudio;
+    public void MuteAllAudio() => onMuteAllAudio?.Invoke();
 
 }

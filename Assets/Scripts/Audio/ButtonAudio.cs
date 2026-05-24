@@ -14,6 +14,7 @@ public class ButtonAudio : MonoBehaviour
 
     public void ButtonClicked()
     {
+        _eventManager.MuteAllAudio();
         _eventManager.SetActiveAudioSource(audioSource, isWordButton);
     }
 }
